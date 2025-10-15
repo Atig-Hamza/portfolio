@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamza Atig - Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        jura: ['Jura', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        accent: '#38bdf8',
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-primary text-white font-jura h-screen flex flex-col items-center justify-center text-center">
+    <div class="backdrop-blur-xl bg-white/5 p-10 rounded-3xl shadow-2xl">
+        <h1 class="text-4xl font-bold">Hamza Atig</h1>
+        <p class="text-accent mt-2">Web Developer & Designer</p>
+        <div class="mt-6 space-x-4">
+            <a href="about.html" class="underline hover:text-accent transition">About</a>
+            <a href="projects.html" class="underline hover:text-accent transition">Projects</a>
+            <a href="contact.html" class="underline hover:text-accent transition">Contact</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
