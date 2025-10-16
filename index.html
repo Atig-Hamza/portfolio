@@ -2,42 +2,359 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamza Atig - Portfolio</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        jura: ['Jura', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0f172a',
-                        accent: '#38bdf8',
-                    },
-                },
-            },
-        }
-    </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/1.png" />
+
+    <style>
+        .font-display {
+            font-family: 'Anton', sans-serif;
+        }
+
+        .grid-pattern {
+            background-image: linear-gradient(to right, #DCD2C8 1px, transparent 1px),
+                linear-gradient(to bottom, #DCD2C8 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .sticker {
+            box-shadow: 4px 4px 0px #101010;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .sticker:hover {
+            transform: translateY(-4px) rotate(var(--tw-rotate));
+            box-shadow: 8px 8px 0px #101010;
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 0.25rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #6ADBCB;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .creative-highlight {
+            position: relative;
+            display: inline-block;
+            padding: 0 4px;
+        }
+
+        .creative-highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 100%;
+            height: 8px;
+            z-index: -1;
+            transform: skewX(-12deg);
+        }
+
+        .highlight-yellow::after {
+            background: #FFD138;
+        }
+
+        .highlight-green::after {
+            background: #98E23B;
+        }
+
+        .highlight-cyan::after {
+            background: #6ADBCB;
+        }
+
+        .highlight-pink::after {
+            background: #FF5E84;
+        }
+
+        .highlight-beige::after {
+            background: #F2EBE3;
+        }
+    </style>
 </head>
 
-<body class="bg-primary text-white font-jura h-screen flex flex-col items-center justify-center text-center">
-    <div class="backdrop-blur-xl bg-white/5 p-10 rounded-3xl shadow-2xl">
-        <h1 class="text-4xl font-bold">Hamza Atig</h1>
-        <p class="text-accent mt-2">Web Developer & Designer</p>
-        <div class="mt-6 space-x-4">
-            <a href="about.html" class="underline hover:text-accent transition">About</a>
-            <a href="projects.html" class="underline hover:text-accent transition">Projects</a>
-            <a href="contact.html" class="underline hover:text-accent transition">Contact</a>
-        </div>
+<body class="bg-[#101010] text-[#F2EBE3]" style="font-family: 'Inter', sans-serif;">
+
+    <div class="container mx-auto px-6 lg:px-12 py-8">
+
+        <header class="flex justify-between items-center mb-16 md:mb-24">
+            <div class="flex items-center space-x-4">
+                <img src="./img/1.png" alt="photo" class="w-10">
+                <span class="font-display text-2xl tracking-wider">HAMZA ATIG</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+                <a href="#home" class="nav-link hover:text-[#6ADBCB] transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-[#6ADBCB] transition-colors">About</a>
+                <a href="#projects" class="nav-link hover:text-[#6ADBCB] transition-colors">Projects</a>
+                <a href="#contact" class="nav-link hover:text-[#6ADBCB] transition-colors">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <h1
+                class="font-display text-9xl sm:text-9xl md:text-9xl lg:text-[13rem] leading-none tracking-tighter uppercase mb-12 text-center">
+                WEB DEV & DESIGNER
+            </h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <p class="text-base lg:col-span-1">
+                    I build exceptional, performance-driven digital experiences for ambitious startups, focusing on
+                    clean code and pixel-perfect design.
+                </p>
+                <p class="text-base lg:col-span-1">
+                    A passionate developer translating complex ideas into intuitive, scalable, and delightful user
+                    interfaces.
+                </p>
+                <div class="lg:col-start-3 flex lg:justify-end">
+                    <a href="#contact" class="font-bold text-lg inline-flex items-center group">
+                        GET IN TOUCH
+                        <span class="ml-3 transition-transform duration-300 group-hover:translate-x-2">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative h-[600px] md:h-[700px]">
+                <div
+                    class="absolute inset-0 bg-[#F2EBE3] grid-pattern rounded-tl-[12rem] rounded-br-[12rem] overflow-hidden">
+
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[93%] md:w-[650px] z-10">
+                        <img class="h-full w-full" src="./img/1.png" alt="">
+                    </div>
+
+                    <!-- shapes -->
+                    <div class="absolute inset-0 z-20">
+                        <div class="sticker absolute top-[15%] left-[8%] bg-[#6ADBCB] text-[#101010] p-6 rounded-3xl text-center w-[280px] transform -rotate-6 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 39.826px auto auto 277.452px;">
+                            <h3 class="font-display text-3xl tracking-wide mb-2">FRONTEND</h3>
+                            <p class="text-lg font-bold"><span class="creative-highlight highlight-yellow">HTML</span>,
+                                CSS, <span class="creative-highlight highlight-yellow">JS</span></p>
+                        </div>
+
+                        <div class="sticker absolute top-[18%] right-[12%] bg-[#FF5E84] text-[#101010] p-5 rounded-2xl text-center w-52 transform rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 12.2854px auto auto 1213.78px;">
+                            <h3 class="font-display text-2xl tracking-wide mb-2">UI/UX DESIGN</h3>
+                            <p class="text-sm font-bold"><span class="creative-highlight highlight-green">FIGMA</span>
+                                &amp; PROTOTYPES</p>
+                        </div>
+
+                        <div class="sticker absolute top-[48%] left-[6%] bg-[#FFD138] text-[#101010] p-4 px-6 rounded-2xl text-center transform -rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 203.096px auto auto 280.482px;">
+                            <h3 class="font-display text-2xl tracking-wide"><span
+                                    class="creative-highlight highlight-cyan">TAILWIND</span> CSS</h3>
+                        </div>
+
+                        <div class="sticker absolute bottom-[35%] left-[20%] bg-[#FF8438] text-[#101010] p-5 rounded-2xl text-center transform rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 321.464px auto auto 228.322px;">
+                            <h3 class="font-display text-2xl tracking-wide"><span
+                                    class="creative-highlight highlight-beige">REACT</span> &amp; VUE.JS</h3>
+                        </div>
+
+                        <div class="sticker absolute top-[55%] right-[8%] bg-[#6ADBCB] text-[#101010] p-4 rounded-2xl text-center transform rotate-6 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 156.131px auto auto 1051.07px;">
+                            <h3 class="font-display text-xl tracking-wide"><span
+                                    class="creative-highlight highlight-pink">BRANDING</span> &amp;<br>IDENTITY '24
+                                <span class="text-3xl">✦</span></h3>
+                        </div>
+
+                        <div class="sticker absolute bottom-[12%] right-[18%] bg-[#98E23B] text-[#101010] p-4 rounded-full h-32 w-32 flex items-center justify-center text-center transform rotate-12 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 302.248px auto auto 468.061px;">
+                            <p class="font-display text-base tracking-widest leading-tight">WEB<br><span
+                                    class="creative-highlight highlight-yellow">A11Y</span><br>TESTING</p>
+                        </div>
+
+                        <div class="sticker absolute bottom-[24%] left-[10%] bg-[#FF5E84] text-[#101010] px-6 py-4 rounded-2xl text-center transform -rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 254.403px auto auto 23.7574px;">
+                            <h3 class="font-display text-2xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-cyan">LARAVEL</span></h3>
+                            <p class="text-sm font-bold">REST APIs &amp; BLADE</p>
+                        </div>
+
+                        <div class="sticker absolute bottom-[20%] left-[32%] bg-[#4A90E2] text-[#101010] px-6 py-4 rounded-2xl text-center transform rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 557.025px auto auto 26.3906px;">
+                            <h3 class="font-display text-2xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-yellow">NODE.JS</span></h3>
+                            <p class="text-sm font-bold">EXPRESS &amp; TS</p>
+                        </div>
+
+                        <div class="sticker absolute bottom-[10%] right-[34%] bg-[#FFD138] text-[#101010] px-6 py-5 rounded-3xl text-center w-60 transform -rotate-4 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 303.047px auto auto 900.406px;">
+                            <h3 class="font-display text-2xl tracking-wide mb-2"><span
+                                    class="creative-highlight highlight-pink">VIDEO EDIT</span></h3>
+                            <p class="text-sm font-bold">Adobe Premiere Pro · After Effects</p>
+                        </div>
+
+                        <div class="sticker absolute top-[6%] left-[38%] bg-[#F2EBE3] text-[#101010] px-6 py-4 rounded-3xl text-center w-48 transform rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 79.548px auto auto 45.6374px;">
+                            <h3 class="font-display text-2xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-green">MOTION</span> DESIGN</h3>
+                            <p class="text-sm font-bold">After Effects · Lottie</p>
+                        </div>
+
+                        <div class="sticker absolute top-[10%] right-[32%] bg-[#C9F2FF] text-[#101010] px-6 py-4 rounded-2xl text-center w-48 transform -rotate-1 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 6.99088px auto auto 916.785px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-pink">MENTOR</span> SESSIONS</h3>
+                            <p class="text-xs font-bold uppercase">Career · Code Reviews</p>
+                        </div>
+
+                        <div class="sticker absolute top-[30%] right-[34%] bg-[#FFE8A3] text-[#101010] px-6 py-4 rounded-2xl text-center w-48 transform rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 164.202px auto auto 1240.89px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-yellow">SEO</span> STRATEGY</h3>
+                            <p class="text-xs font-bold uppercase">Audits · Schema</p>
+                        </div>
+
+                        <div class="sticker absolute top-[34%] left-[38%] bg-[#FFD6E8] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform -rotate-4 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 581.048px auto auto 1008.19px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-cyan">AGILE</span> DELIVERY</h3>
+                            <p class="text-xs font-bold uppercase">Scrum · Kanban</p>
+                        </div>
+
+                        <div class="sticker absolute top-[46%] right-[40%] bg-[#B8F28F] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 173.036px auto auto 841.554px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-beige">DESIGN</span> SYSTEMS</h3>
+                            <p class="text-xs font-bold uppercase">Tokens · Docs</p>
+                        </div>
+
+                        <div class="sticker absolute top-[52%] left-[30%] bg-[#FFF1E6] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform -rotate-1 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 403.942px auto auto 16.2009px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-yellow">CMS</span> BUILDS</h3>
+                            <p class="text-xs font-bold uppercase">WordPress · Headless</p>
+                        </div>
+
+                        <div class="sticker absolute top-[56%] right-[28%] bg-[#D3D3FF] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform rotate-4 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 280px auto auto 1213.81px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-green">API</span> DESIGN</h3>
+                            <p class="text-xs font-bold uppercase">REST · GraphQL</p>
+                        </div>
+
+                        <div class="sticker absolute top-[62%] left-[44%] bg-[#FFB6C1] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform -rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 600.036px auto auto 218.423px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-pink">DEVOPS</span> FLOW</h3>
+                            <p class="text-xs font-bold uppercase">CI/CD · Docker</p>
+                        </div>
+
+                        <div class="sticker absolute top-[68%] right-[46%] bg-[#C7FFF2] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 462.722px auto auto 974.132px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-cyan">GRAPHQL</span> STACK</h3>
+                            <p class="text-xs font-bold uppercase">Apollo · Caching</p>
+                        </div>
+
+                        <div class="sticker absolute top-[74%] left-[56%] bg-[#FFE0B5] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform -rotate-2 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 387.353px auto auto 1200.87px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-yellow">QA</span> AUTOMATION</h3>
+                            <p class="text-xs font-bold uppercase">Cypress · Playwright</p>
+                        </div>
+
+                        <div class="sticker absolute top-[80%] right-[52%] bg-[#F7C1FF] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform rotate-3 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 469.141px auto auto 218.019px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-beige">PERF</span> TUNING</h3>
+                            <p class="text-xs font-bold uppercase">Lighthouse · Web Vitals</p>
+                        </div>
+
+                        <div class="sticker absolute top-[86%] left-[60%] bg-[#BFF0FF] text-[#101010] px-5 py-4 rounded-2xl text-center w-48 transform -rotate-4 border-4 border-[#101010] cursor-grab"
+                            style="touch-action: none; inset: 514px auto auto 1211px;">
+                            <h3 class="font-display text-xl tracking-wide mb-1"><span
+                                    class="creative-highlight highlight-green">WEBXR</span> BUILDS</h3>
+                            <p class="text-xs font-bold uppercase">Three.js · AR</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 
-    <script src="js/main.js"></script>
+    <script>
+        const gridCanvas = document.querySelector('.grid-pattern');
+
+        if (gridCanvas) {
+            const stickers = gridCanvas.querySelectorAll('.sticker');
+
+            stickers.forEach((sticker) => {
+                sticker.style.touchAction = 'none';
+
+                sticker.addEventListener('pointerdown', (event) => {
+                    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+                    event.preventDefault();
+
+                    const containerRect = gridCanvas.getBoundingClientRect();
+                    const stickerRect = sticker.getBoundingClientRect();
+                    const offsetX = event.clientX - stickerRect.left;
+                    const offsetY = event.clientY - stickerRect.top;
+                    const stickerWidth = stickerRect.width;
+                    const stickerHeight = stickerRect.height;
+
+                    sticker.style.left = `${stickerRect.left - containerRect.left}px`;
+                    sticker.style.top = `${stickerRect.top - containerRect.top}px`;
+                    sticker.style.right = 'auto';
+                    sticker.style.bottom = 'auto';
+
+                    sticker.setPointerCapture(event.pointerId);
+
+                    const handlePointerMove = (moveEvent) => {
+                        const bounds = gridCanvas.getBoundingClientRect();
+                        const nextLeft = moveEvent.clientX - bounds.left - offsetX;
+                        const nextTop = moveEvent.clientY - bounds.top - offsetY;
+
+                        const clampedLeft = Math.min(Math.max(0, nextLeft), bounds.width - stickerWidth);
+                        const clampedTop = Math.min(Math.max(0, nextTop), bounds.height - stickerHeight);
+
+                        sticker.style.left = `${clampedLeft}px`;
+                        sticker.style.top = `${clampedTop}px`;
+                    };
+
+                    const endDrag = (endEvent) => {
+                        if (sticker.hasPointerCapture(endEvent.pointerId)) {
+                            sticker.releasePointerCapture(endEvent.pointerId);
+                        }
+                        sticker.removeEventListener('pointermove', handlePointerMove);
+                        sticker.removeEventListener('pointerup', endDrag);
+                        sticker.removeEventListener('pointercancel', endDrag);
+                    };
+
+                    sticker.addEventListener('pointermove', handlePointerMove);
+                    sticker.addEventListener('pointerup', endDrag);
+                    sticker.addEventListener('pointercancel', endDrag);
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
