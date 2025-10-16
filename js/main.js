@@ -102,3 +102,20 @@ if (gridCanvas) {
     applyStyles();
     window.addEventListener('resize', applyStyles);
 }
+
+
+//click on designner text to change letter color 
+const designerText = document.getElementById('designer-text');
+const word = 'DESIGNER';
+const colors = ['#FFD138', '#FF5E84', '#6ADBCB', '#98E23B', '#FF8438', '#F2EBE3'];
+
+designerText.innerHTML = word.split('').map((letter, index) =>
+    `<span class="cursor-pointer inline-block transition-colors duration-300" data-index="${index}">${letter}</span>`
+).join('');
+
+designerText.querySelectorAll('span').forEach(span => {
+    span.addEventListener('click', function () {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        this.style.color = randomColor;
+    });
+});
