@@ -237,3 +237,27 @@ document.addEventListener("mousemove", (e) => {
     const dir = Math.floor(((angle + Math.PI / 8 + Math.PI) / (2 * Math.PI)) * 8) % 8;
     arrow.textContent = arrowWeights[w][dir];
 });
+
+
+//cards
+document.addEventListener('DOMContentLoaded', () => {
+    const textPath = document.getElementById('scrolling-text');
+    const baseOffset = parseFloat(textPath.getAttribute('startOffset'));
+    let targetOffset = baseOffset;
+    let currentOffset = baseOffset;
+
+    const scrollFactor = -0.04;
+
+    function animate() {
+        currentOffset += (targetOffset - currentOffset) * 0.1;
+        textPath.setAttribute('startOffset', currentOffset + '%');
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        targetOffset = baseOffset + (scrollY * scrollFactor);
+    });
+
+    animate();
+});

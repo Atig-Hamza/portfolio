@@ -108,7 +108,7 @@
 
 <body class="bg-[#101010] text-[#F2EBE3]" style="font-family: 'Inter', sans-serif;">
 
-    <div class="container mx-auto px-6 lg:px-12 py-8">
+    <section class="container mx-auto px-6 lg:px-12 py-8">
 
         <header class="flex justify-between items-center mb-16 md:mb-24">
             <div class="flex items-center space-x-4">
@@ -331,7 +331,21 @@
                 </div>
             </div>
         </main>
-    </div>
+    </section>
+    <section class="relative overflow-hidden mt-8">
+        <svg width="100%" height="600" viewBox="0 0 1800 600" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-7deg);">
+            <defs>
+            <!-- Increased the curve by making the control point's Y lower (more negative) -->
+            <path id="curvePath" d="M -200 550 Q 900 -200 2000 550" fill="transparent"/>
+            </defs>
+            <text class="text-[12rem] font-display uppercase" fill="#F2EBE3">
+            <textPath id="scrolling-text" href="#curvePath" startOffset="50%" text-anchor="middle">
+                PORTFOLIO PROJECTS &middot; HAMZA ATIG &middot; CREATIVE WEB DEV &middot; UI/UX DESIGN &middot; HAMZA ATIG &middot; MODERN APPS &middot; PASSION FOR CODE &middot; SEE MY WORK &middot; PORTFOLIO PROJECTS &middot; HAMZA ATIG &middot;
+            </textPath>
+            </text>
+        </svg>
+    </section>
+    <section class="h-[100vh] bg-[#101010]"></section>
 </body>
 <script src="./js/main.js"></script>
 
