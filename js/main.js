@@ -65,12 +65,12 @@ if (gridCanvas) {
 
     // Responsive scaling
     const querys = [
-        { query: '(max-width: 430px)', top: '-10%', left: '-105%' },
-        { query: '(max-width: 500px)', top: '-7%', left: '-105%' },
-        { query: '(max-width: 520px)', top: '-7%', left: '-100%' },
-        { query: '(max-width: 550px)', top: '-7%', left: '-97%' },
-        { query: '(max-width: 570px)', top: '-7%', left: '-90%' },
-        { query: '(max-width: 600px)', top: '-7%', left: '-86%' },
+        // { query: '(max-width: 430px)', top: '-10%', left: '-105%' },
+        // { query: '(max-width: 500px)', top: '-7%', left: '-105%' },
+        // { query: '(max-width: 520px)', top: '-7%', left: '-100%' },
+        // { query: '(max-width: 550px)', top: '-7%', left: '-97%' },
+        // { query: '(max-width: 570px)', top: '-7%', left: '-90%' },
+        // { query: '(max-width: 600px)', top: '-7%', left: '-86%' },
         { query: '(max-width: 640px)', top: '-7%', left: '-76%' },
         { query: '(max-width: 767px)', top: '-7%', left: '-71%' },
         { query: '(max-width: 1024px)', top: '0%', left: '-49%' },
@@ -86,6 +86,13 @@ if (gridCanvas) {
         // if (window.innerWidth < 420) scale = 0.6;
         // else if (window.innerWidth < 500) scale = 0.7;
         // else if (window.innerWidth < 600) scale = 0.8;
+        if (window.innerWidth < 640) {
+            document.querySelector('.shapesContainer').style.display = 'none';
+            document.querySelector('.shapesContainerMobile').style.display = 'block';
+        } else {
+            document.querySelector('.shapesContainer').style.display = 'block';
+            document.querySelector('.shapesContainerMobile').style.display = 'none';
+        }
 
         for (const config of querys) {
             const mediaQuery = window.matchMedia(config.query);
@@ -119,3 +126,77 @@ designerText.querySelectorAll('span').forEach(span => {
         this.style.color = randomColor;
     });
 });
+
+
+// mobile move the shape sticker
+const mobileContainer = document.querySelector('.shapesContainerMobile');
+const mobileSticker = mobileContainer?.querySelector('.absolute');
+
+if (mobileContainer && mobileSticker) {
+    mobileSticker.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        event.preventDefault();
+
+        const stickerRect = mobileSticker.getBoundingClientRect();
+        const containerRect = mobileContainer.getBoundingClientRect();
+
+        const offsetX = event.clientX - stickerRect.left;
+        const offsetY = event.clientY - stickerRect.top;
+        const stickerWidth = stickerRect.width;
+        const stickerHeight = stickerRect.height;
+
+        mobileSticker.setPointerCapture(event.pointerId);
+
+        const handlePointerMove = (moveEvent) => {
+            const newContainerRect = mobileContainer.getBoundingClientRect();
+
+            let left = moveEvent.clientX - newContainerRect.left - offsetX;
+            let top = moveEvent.clientY - newContainerRect.top - offsetY;
+
+            const maxLeft = newContainerRect.width - stickerWidth;
+            const maxTop = newContainerRect.height - stickerHeight;
+
+            left = Math.min(Math.max(0, left), maxLeft);
+            top = Math.min(Math.max(0, top), maxTop);
+
+            mobileSticker.style.left = `${left}px`;
+            mobileSticker.style.top = `${top}px`;
+            mobileSticker.style.right = 'auto';
+            mobileSticker.style.bottom = 'auto';
+        };
+
+        const endDrag = (endEvent) => {
+            if (mobileSticker.hasPointerCapture(endEvent.pointerId)) {
+                mobileSticker.releasePointerCapture(endEvent.pointerId);
+            }
+            mobileSticker.removeEventListener('pointermove', handlePointerMove);
+            mobileSticker.removeEventListener('pointerup', endDrag);
+            mobileSticker.removeEventListener('pointercancel', endDrag);
+        };
+
+        mobileSticker.addEventListener('pointermove', handlePointerMove);
+        mobileSticker.addEventListener('pointerup', endDrag);
+        mobileSticker.addEventListener('pointercancel', endDrag);
+    });
+}
+
+// Adjust mobileSticker top position on resize based on screen size
+const getMobileStickerTop = () => {
+    if (window.innerWidth < 500) return '11%';
+    if (window.innerWidth < 555) return '21%';
+    if (window.innerWidth < 640) return '24%';
+    return '40px';
+};
+
+window.addEventListener('resize', () => {
+    if (mobileContainer && mobileSticker) {
+        mobileSticker.style.top = getMobileStickerTop();
+    }
+});
+
+// Set initial top value on load
+if (mobileContainer && mobileSticker) {
+    mobileSticker.style.top = getMobileStickerTop();
+}
+
+

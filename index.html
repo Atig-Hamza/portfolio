@@ -24,6 +24,12 @@
             background-size: 40px 40px;
         }
 
+        .grid-pattern2 {
+            background-image: linear-gradient(to right, #dcd2c865 1px, transparent 1px),
+                linear-gradient(to bottom, #dcd2c85d 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
         .sticker {
             box-shadow: 4px 4px 0px #101010;
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
@@ -106,7 +112,8 @@
 
         <header class="flex justify-between items-center mb-16 md:mb-24">
             <div class="flex items-center space-x-4">
-                <img src="./img/1.png" alt="photo" class="w-10 opacity-60" style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+                <img src="./img/1.png" alt="photo" class="w-10 opacity-60"
+                    style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
                 <span class="font-display text-2xl tracking-wider">HAMZA ATIG</span>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
@@ -140,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="relative h-[600px] md:h-[700px]">
+            <div class="shapesContainer relative h-[600px] md:h-[700px]">
                 <div
                     class="absolute inset-0 bg-[#F2EBE3] grid-pattern rounded-tl-[12rem] rounded-br-[12rem] overflow-hidden">
 
@@ -297,8 +304,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="relative w-full max-[400px]:h-[300px] h-[400px] shapesContainerMobile grid-pattern2 bg-opacity-50 rounded-3xl overflow-hidden ">
+                <img src="./img/1.png" alt="image" class="opacity-90" style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+                <div class="absolute sticker top-[25%] left-[30%]  w-[40%] bg-[#FFD138] text-[#101010] p-4 px-6 rounded-2xl text-center transform -rotate-3 border-4 border-[#101010] cursor-grab"
+                    style="touch-action: none;">
+                    <h3 class="font-display text-2xl max-[300px]:text-lg tracking-wide"><span
+                            class="creative-highlight highlight-cyan">TAILWIND</span> CSS</h3>
+                </div>
+            </div>
         </main>
     </div>
 </body>
 <script src="./js/main.js"></script>
+
 </html>
