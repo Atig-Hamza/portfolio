@@ -213,3 +213,27 @@ mobileNavLinks.forEach(link => {
         mobileMenu.classList.add('hidden');
     });
 });
+
+
+//arrow
+const arrow = document.querySelector(".arrow");
+const arrowWeights = [
+    ["🡠", "🡤", "🡱", "🡥", "🡢", "🡦", "🡣", "🡧"],
+    ["🡨", "🡬", "🡩", "🡭", "🡪", "🡦", "🡫", "🡧"],
+    ["🡸", "🡼", "🢁", "🢅", "🡺", "🡶", "🢃", "🡷"],
+    ["🢀", "🢄", "🢁", "🢅", "🢂", "🡾", "🢃", "🡿"]
+];
+
+document.addEventListener("mousemove", (e) => {
+    const rect = arrow.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    const angle = Math.atan2(dy, dx);
+    const dist = Math.min(Math.sqrt(dx * dx + dy * dy), 300);
+    const weight = Math.floor((1 - dist / 300) * arrowWeights.length);
+    const w = Math.min(weight, arrowWeights.length - 1);
+    const dir = Math.floor(((angle + Math.PI / 8 + Math.PI) / (2 * Math.PI)) * 8) % 8;
+    arrow.textContent = arrowWeights[w][dir];
+});
