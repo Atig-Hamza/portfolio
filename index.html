@@ -114,7 +114,7 @@
             <div class="flex items-center space-x-4">
                 <img src="./img/1.png" alt="photo" class="w-10 opacity-60"
                     style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
-                <span class="font-display text-2xl tracking-wider">HAMZA ATIG</span>
+                <span class="font-display text-xl md:text-2xl tracking-wider">HAMZA ATIG</span>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
                 <a href="#home" class="nav-link hover:text-[#6ADBCB] transition-colors">Home</a>
@@ -122,7 +122,22 @@
                 <a href="#projects" class="nav-link hover:text-[#6ADBCB] transition-colors">Projects</a>
                 <a href="#contact" class="nav-link hover:text-[#6ADBCB] transition-colors">Contact</a>
             </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-[#F2EBE3] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
         </header>
+
+        <nav id="mobileMenu" class="hidden md:hidden mb-8">
+            <div class="flex flex-col space-y-4 text-lg font-bold uppercase tracking-widest">
+                <a href="#home" class="mobile-nav-link nav-link hover:text-[#6ADBCB] transition-colors">Home</a>
+                <a href="#about" class="mobile-nav-link nav-link hover:text-[#6ADBCB] transition-colors">About</a>
+                <a href="#projects" class="mobile-nav-link nav-link hover:text-[#6ADBCB] transition-colors">Projects</a>
+                <a href="#contact" class="mobile-nav-link nav-link hover:text-[#6ADBCB] transition-colors">Contact</a>
+            </div>
+        </nav>
 
         <main>
             <h1
@@ -305,8 +320,10 @@
                 </div>
             </div>
 
-            <div class="relative w-full max-[400px]:h-[300px] h-[400px] shapesContainerMobile grid-pattern2 bg-opacity-50 rounded-3xl overflow-hidden ">
-                <img src="./img/1.png" alt="image" class="opacity-90" style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+            <div
+                class="relative w-full max-[400px]:h-[300px] h-[400px] shapesContainerMobile grid-pattern2 bg-opacity-50 rounded-3xl overflow-hidden ">
+                <img src="./img/1.png" alt="image" class="opacity-90"
+                    style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
                 <div class="absolute sticker top-[25%] left-[30%]  w-[40%] bg-[#FFD138] text-[#101010] p-4 px-6 rounded-2xl text-center transform -rotate-3 border-4 border-[#101010] cursor-grab"
                     style="touch-action: none;">
                     <h3 class="font-display text-2xl max-[300px]:text-lg tracking-wide"><span

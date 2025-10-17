@@ -199,4 +199,17 @@ if (mobileContainer && mobileSticker) {
     mobileSticker.style.top = getMobileStickerTop();
 }
 
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
